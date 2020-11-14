@@ -20,7 +20,8 @@ class Todo(models.Model):
     title = models.CharField(verbose_name='todo text', max_length=200)
     completed = models.BooleanField(verbose_name='completed', default=False)
     priority = models.CharField(max_length=10, choices=priorityList, default='ぼちぼち')
-    created = models.DateTimeField()
+    # is_validでエラーでる
+    # created = models.DateTimeField(auto_created=True)
 
     # template内で{{ todo }}と記載した際にtodo.titleが表示される
     def __str__(self):

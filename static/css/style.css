@@ -1,15 +1,17 @@
 .a1 {
-    background-color: #98d98e;
+    /* background-color: #f8d3d3; */
+    margin-left: 50px;
 }
 
-.a2{
-    background-color: #aaaaaa;
+.navbar-brand {
+    color: #ffffff;
 }
 
-.b1{
-    background-color: #ffffff;
+form {
+    margin-left: 30px;
+    margin-top: 20px;
 }
 
-.b2 {
-    background-color: #bbbbbb;
+body {
+    background-color: #f8d3d3;
 }

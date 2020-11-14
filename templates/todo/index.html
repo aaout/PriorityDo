@@ -1,15 +1,40 @@
 {% extends "base.html" %}
 {% load static %}
+
 {% block content %}
-<h1>Hello World !!</h1>
-<h3>this is aaout</h3>
+
+
+<!-- actionは指定しなくてもredirectで指定すれば動く -->
+<form method="POST" action="/">
+    {% csrf_token %}
+    {{form}}
+    <input type="submit" name="Create Todo">
+</form>
+
 {% for i in todo %}
 <div class='a1'>
-    <p>title: {{i}}</p>
-    <p>completed: {{i.completed}}</p>
-    <!-- priorityの要素にアクセスできない -->
-    <p>priority: {{i.priority}}</p>
-    <p>date: {{i.created}}</p>
+
+    {% if i.completed == True %}
+    <strike>
+        <br>
+        <p>title: {{i}}</p>
+        <p>completed: {{i.completed}}</p>
+        <!-- priorityの要素にアクセスできない -->
+        <p>priority: {{i.priority}}</p>
+    </strike>
+    {% else %}
+    <span>
+        <br>
+        <p>title: {{i}}</p>
+        <p>completed: {{i.completed}}</p>
+        <!-- priorityの要素にアクセスできない -->
+        <p>priority: {{i.priority}}</p>
+    </span>
+    {% endif %}
+
+    <a href="{% url 'update_todo' i.id %}">Update </a>
+    <a href="{% url 'delete' i.id %}">Delete</a>
+    <!-- <p>date: {{i.created}}</p> -->
     <br>
     <br>
 </div>
