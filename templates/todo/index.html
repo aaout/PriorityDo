@@ -23,22 +23,24 @@
         </p>
         {% endif %}
         <p>title: {{i}}</p>
-        <p>completed: {{i.completed}}</p>
+        <p>progress: {{i.progress}}</p>
+        <p>importance: {{i.importance}}</p>
+        <p>motivation: {{i.motivation}}</p>
         <!-- priorityの要素にアクセスできない -->
-        <p>priority: {{i.priority}}</p>
+        <!-- <p>priority: {{i.priority}}</p> -->
     </strike>
     {% else %}
     <span>
         <br>
-        {% if i.priority == 5 %}
+        <!-- {% if i.priority == 5 %}
         <p>
             ↓やばいよおおおおおおおおおおおおおおお
         </p>
-        {% endif %}
+        {% endif %} -->
         <p>title: {{i}}</p>
-        <p>completed: {{i.completed}}</p>
-        <!-- priorityの要素にアクセスできない -->
-        <p>priority: {{i.priority}}</p>
+        <p>progress: {{i.progress}}</p>
+        <p>importance: {{i.importance}}</p>
+        <p>motivation: {{i.motivation}}</p>
     </span>
     {% endif %}
 

@@ -19,9 +19,9 @@ class Todo(models.Model):
     # table追加予定
     title = models.CharField(verbose_name='todo text', max_length=200, default='Todo')
     completed = models.BooleanField(verbose_name='completed', default=False)
-    progress = models.IntegerField(choices=priorityList)
-    importance = models.IntegerField(choices=priorityList)
-    motivation = models.IntegerField(choices=priorityList)
+    progress = models.IntegerField(choices=priorityList, default=1)
+    importance = models.IntegerField(choices=priorityList, default=1)
+    motivation = models.IntegerField(choices=priorityList, default=1)
     # sum = progress + importance + motivation
     # is_validでエラーでる
     # created = models.DateTimeField(auto_created=True)
