@@ -13,12 +13,27 @@
 
 {% for i in todo %}
 <div class='a1'>
-    <br>
-    <p>title: {{i}}</p>
-    <p>completed: {{i.completed}}</p>
-    <!-- priorityの要素にアクセスできない -->
-    <p>priority: {{i.priority}}</p>
-    <a href="{% url 'update_todo' i.id %}">Update</a>
+
+    {% if i.completed == True %}
+    <strike>
+        <br>
+        <p>title: {{i}}</p>
+        <p>completed: {{i.completed}}</p>
+        <!-- priorityの要素にアクセスできない -->
+        <p>priority: {{i.priority}}</p>
+    </strike>
+    {% else %}
+    <span>
+        <br>
+        <p>title: {{i}}</p>
+        <p>completed: {{i.completed}}</p>
+        <!-- priorityの要素にアクセスできない -->
+        <p>priority: {{i.priority}}</p>
+    </span>
+    {% endif %}
+
+    <a href="{% url 'update_todo' i.id %}">Update </a>
+    <a href="{% url 'delete' i.id %}">Delete</a>
     <!-- <p>date: {{i.created}}</p> -->
     <br>
     <br>
