@@ -22,3 +22,18 @@ def index(request):
 
     context = {'todo': todo, 'form':form}
     return render(request, 'todo/index.html', context)
+
+
+def updateTodo(request, pk):
+    todo = Todo.objects.get(id=pk)
+    form = TodoForm(instance=todo)
+
+    if request.method == 'POST':
+        form = TodoForm(request.POST, instance=todo)
+        if form.is_valid():
+            form.save()
+            print('valid ok')
+        return redirect('/')
+
+    context = {'form':form}
+    return render(request, 'todo/update.html', context)
