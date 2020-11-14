@@ -7,16 +7,21 @@
 <!-- actionは指定しなくてもredirectで指定すれば動く -->
 <form method="POST" action="/">
     {% csrf_token %}
-    {{form}}
+    {{form.title}}
+    {{form.priority}}
     <input type="submit" name="Create Todo">
 </form>
 
 {% for i in todo %}
 <div class='a1'>
-
     {% if i.completed == True %}
     <strike>
         <br>
+        {% if i.priority == 5 %}
+        <p>
+            ↓やばいよおおおおおおおおおおおおおおお
+        </p>
+        {% endif %}
         <p>title: {{i}}</p>
         <p>completed: {{i.completed}}</p>
         <!-- priorityの要素にアクセスできない -->
@@ -25,6 +30,11 @@
     {% else %}
     <span>
         <br>
+        {% if i.priority == 5 %}
+        <p>
+            ↓やばいよおおおおおおおおおおおおおおお
+        </p>
+        {% endif %}
         <p>title: {{i}}</p>
         <p>completed: {{i.completed}}</p>
         <!-- priorityの要素にアクセスできない -->
