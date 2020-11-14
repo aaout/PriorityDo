@@ -10,14 +10,16 @@ from .models import *
 
 # classで書き換えたい
 def index(request):
-    todo = Todo.objects.all()
+    todo = Todo.objects.order_by('-motivation').all()
     form = TodoForm()
+    # for i in range(len(todo)):
+    #     todo[i].priority = todo[i].progress + todo[i].importance + todo[i].motivation
+    #     todo[i].priority.save()
 
     if request.method == 'POST':
         form = TodoForm(request.POST)
-        # if form.is_valid():
-            # print('valid ok')
-        form.save()
+        if form.is_valid():
+            form.save()
         return redirect('/')
 
     context = {'todo': todo, 'form':form}
@@ -43,6 +45,7 @@ def deleteTodo(request, pk):
 
     if request.method == 'POST':
         item.delete()
+        print(item.title)
         return redirect('/')
 
     context = {'item':item}
