@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<h1>Hello World !!</h1>
+<h3>this is aaout</h3>
+{% for i in todo %}
+<div class='a1'>
+    <p>title: {{i}}</p>
+    <p>completed: {{i.completed}}</p>
+    <!-- priorityの要素にアクセスできない -->
+    <p>priority: {{i.priority}}</p>
+    <p>date: {{i.created}}</p>
+    <br>
+    <br>
+</div>
+{% endfor %}
+{% endblock content %}
