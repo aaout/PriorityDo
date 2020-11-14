@@ -9,17 +9,20 @@ class Todo(models.Model):
         db_table = 'todo'
 
     priorityList = [
-        ("余裕", "余裕"),
-        ("まあまあ", "まあまあ"),
-        ("ぼちぼち", "ぼちぼち"),
-        ("やばい", "やばい"),
-        ("かなりやばい", "かなりやばい")
+        (1, "余裕"),
+        (2, "まあまあ"),
+        (3, "ぼちぼち"),
+        (4, "やばい"),
+        (5, "かなりやばい")
     ]
 
     # table追加予定
-    title = models.CharField(verbose_name='todo text', max_length=200)
+    title = models.CharField(verbose_name='todo text', max_length=200, default='Todo')
     completed = models.BooleanField(verbose_name='completed', default=False)
-    priority = models.CharField(max_length=10, choices=priorityList, default='ぼちぼち')
+    progress = models.IntegerField(choices=priorityList, default=1)
+    importance = models.IntegerField(choices=priorityList, default=1)
+    motivation = models.IntegerField(choices=priorityList, default=1)
+    # sum = progress + importance + motivation
     # is_validでエラーでる
     # created = models.DateTimeField(auto_created=True)
 
