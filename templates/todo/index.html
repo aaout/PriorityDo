@@ -3,12 +3,60 @@
 
 {% block content %}
 
+<head>
+    <!-- BootstrapのCSS読み込み -->
+    <link rel="stylesheet" href="//../../static/css/bootstrap/css/bootstrap.min.css">
+    <!-- jQuery読み込み -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- BootstrapのJS読み込み -->
+    <script src="//../../static/css/bootstrap/js/bootstrap.min.js"></script>
+</head>
 
 <!-- actionは指定しなくてもredirectで指定すれば動く -->
 <form method="POST" action="/">
     {% csrf_token %}
     {{form}}
-    <input type="submit" name="Create Todo">
+    <div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups"></div>
+        <p>　ToDo Text</p>
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text" id="btnGroupAddon">@</div>
+            </div>
+            <input type="text" class="form-control" placeholder="Input group example" aria-label="Input group example" aria-describedby="btnGroupAddon">
+            <input type="submit" name="Create Todo">
+        </div>
+    </div>
+</form>
+
+<form>
+    <div class="form-row">
+        <label for="exampleInputEmail1">ToDo Title</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Input ToDo">
+    </div>
+    <div class="form-group form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+        <label class="form-check-label" for="exampleCheck1">Completed</label>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="inputCity">City</label>
+          <input type="text" class="form-control" id="inputCity">
+        </div>
+        <div class="form-group col-md-4">
+          <label for="inputState">State</label>
+          <select id="inputState" class="form-control">
+            <option selected>Choose...</option>
+            <option>...</option>
+          </select>
+        </div>
+        <div class="form-group col-md-2">
+          <label for="inputZip">Zip</label>
+          <input type="text" class="form-control" id="inputZip">
+        </div>
+      </div>
+    <br>
+    <br>
+    <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 
 {% for i in todo %}
