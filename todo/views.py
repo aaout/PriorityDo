@@ -10,7 +10,8 @@ from .models import *
 
 # classで書き換えたい
 def index(request):
-    todo = Todo.objects.order_by('-motivation').all()
+    todo = Todo.objects.all()
+    # todo = Todo.objects.order_by('-motivation').all()
     form = TodoForm()
     # for i in range(len(todo)):
     #     todo[i].priority = todo[i].progress + todo[i].importance + todo[i].motivation

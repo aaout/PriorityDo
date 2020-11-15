@@ -20,9 +20,10 @@
         <p>progress {{form.progress}}</p>
         <p>importance {{form.importance}}</p>
         <p>motivation {{form.motivation}}</p>
-        <input type="submit" name="Create Todo">
+        <input type="submit" name="Create Todo" value="todo 追加">
     </div>
 </form>
+
 
 
 {% for i in todo %}
@@ -30,11 +31,6 @@
     {% if i.completed == True %}
     <strike>
         <br>
-        {% if i.priority == 5 %}
-        <p>
-            ↓やばいよおおおおおおおおおおおおおおお
-        </p>
-        {% endif %}
         <p>title: {{i}}</p>
         <p>progress: {{i.progress}}</p>
         <p>importance: {{i.importance}}</p>
