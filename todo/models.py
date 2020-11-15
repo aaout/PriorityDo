@@ -9,19 +9,19 @@ class Todo(models.Model):
         db_table = 'todo'
 
     priorityList = [
-        (1, "余裕"),
-        (2, "まあまあ"),
-        (3, "ぼちぼち"),
-        (4, "やばい"),
-        (5, "かなりやばい")
+        ("レベル1: 余裕", "余裕"),
+        ("レベル2: まあまあ", "まあまあ"),
+        ("レベル3: ぼちぼち", "ぼちぼち"),
+        ("レベル4: やばい", "やばい"),
+        ("レベル5: かなりやばい", "かなりやばい")
     ]
 
     # table追加予定
     title = models.CharField(verbose_name='todo text', max_length=200, default='Todo')
     completed = models.BooleanField(verbose_name='completed', default=False)
-    progress = models.IntegerField(verbose_name='progress',choices=priorityList, default=1)
-    importance = models.IntegerField(verbose_name='importance',choices=priorityList, default=1)
-    motivation = models.IntegerField(verbose_name='motivation',choices=priorityList, default=1)
+    progress = models.CharField(verbose_name='progress',choices=priorityList, default=1, max_length=20)
+    importance = models.CharField(verbose_name='importance',choices=priorityList, default=1, max_length=20)
+    motivation = models.CharField(verbose_name='motivation',choices=priorityList, default=1, max_length=20)
     # priority = models.IntegerField(verbose_name='priority', default=0)
 
     # template内で{{ todo }}と記載した際にtodo.titleが表示される
