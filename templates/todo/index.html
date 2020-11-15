@@ -3,6 +3,7 @@
 
 {% block content %}
 
+<div style="text-align:center;">
 <head>
     <!-- BootstrapのCSS読み込み -->
     <link rel="stylesheet" href="//../../static/css/bootstrap/css/bootstrap.min.css">
@@ -26,44 +27,47 @@
 
 <br>
 <br>
-<a href="{% url 'sort_progress' %}">progress</a>
-<a href="{% url 'sort_importance' %}">importance</a>
-<a href="{% url 'sort_motivation' %}">motivation</a>
+<div class='a1'>
+<a href="{% url 'sort_progress' %}">進捗率</a>
+<a href="{% url 'sort_importance' %}">重要度</a>
+<a href="{% url 'sort_motivation' %}">モチベ</a>
+</div>
+</div>
 <br>
 
 {% for i in todo %}
 <div class='a1'>
-    {% if i.completed == True %}
-    <strike>
+    <div class="kani">
         <br>
-        タスク: {{i}}
-        進捗: {{i.progress}}
-        重要度: {{i.importance}}
-        モチベ: {{i.motivation}}
-        <!-- <p>priority: {{i.priority}}</p> -->
-        <!-- priorityの要素にアクセスできない -->
-        <!-- <p>priority: {{i.priority}}</p> -->
-    </strike>
-    {% else %}
-    <span>
-        <br>
-        <!-- {% if i.priority == 5 %}
-        <p>
-            ↓やばいよおおおおおおおおおおおおおおお
-        </p>
-        {% endif %} -->
-        タスク: {{i}}
-        進捗: {{i.progress}}
-        重要度: {{i.importance}}
-        モチベ: {{i.motivation}}
-    </span>
-    {% endif %}
+        <img src="/../../static/images/list.png" width="750" height="75"></image>
+        {% if i.completed == True %}
+        <strike>
+            <p class="title">{{i}}</p>
+            <p class="progress">進捗率: {{i.progress}}</p>
+            <p class="importance">重要度: {{i.importance}}</p>
+            <p class="motivation">モチベ: {{i.motivation}}</p>
+            <!-- <p>priority: {{i.priority}}</p> -->
+            <!-- priorityの要素にアクセスできない -->
+            <!-- <p>priority: {{i.priority}}</p> -->
+        </strike>
+        {% else %}
+        <span>
+            <p class="title">{{i}}</p>
+            <p class="progress">進捗率: {{i.progress}}</p>
+            <p class="importance">重要度: {{i.importance}}</p>
+            <p class="motivation">モチベ: {{i.motivation}}</p>
+            <!-- <p>priority: {{i.priority}}</p> -->
+            <!-- priorityの要素にアクセスできない -->
+            <!-- <p>priority: {{i.priority}}</p> -->
+        </span>
+        {% endif %}
 
-    <a href="{% url 'update_todo' i.id %}">Update </a>
-    <a href="{% url 'delete' i.id %}">Delete</a>
-    <!-- <p>date: {{i.created}}</p> -->
-    <br>
-    <br>
+        <p class="update"><a href="{% url 'update_todo' i.id %}">Update</a></p>
+        <p class="delete"><a href="{% url 'delete' i.id %}">Delete</a></p>
+        <!-- <p>date: {{i.created}}</p> -->
+        <br>
+    </div>
 </div>
 {% endfor %}
 {% endblock content %}
+</div>

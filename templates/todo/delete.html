@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 
+<div style="text-align:center;">
 {% block content %}
 <h3>消す？？？ "{{ item }}" ?</h3>
 <a href="{% url 'list' %}">Cancel</a>
@@ -9,3 +10,4 @@
     <input type="submit" name="Confirm">
 </form>
 {% endblock content %}
+</div>
