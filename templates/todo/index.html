@@ -37,36 +37,34 @@
 
 {% for i in todo %}
 <div class='a1'>
-    <div class="kani">
-        <br>
-        <img src="/../../static/images/list.png" width="750" height="75"></image>
-        {% if i.completed == True %}
-        <strike>
-            <p class="title">{{i}}</p>
-            <p class="progress">進捗率: {{i.progress}}</p>
-            <p class="importance">重要度: {{i.importance}}</p>
-            <p class="motivation">モチベ: {{i.motivation}}</p>
-            <!-- <p>priority: {{i.priority}}</p> -->
-            <!-- priorityの要素にアクセスできない -->
-            <!-- <p>priority: {{i.priority}}</p> -->
-        </strike>
-        {% else %}
-        <span>
-            <p class="title">{{i}}</p>
-            <p class="progress">進捗率: {{i.progress}}</p>
-            <p class="importance">重要度: {{i.importance}}</p>
-            <p class="motivation">モチベ: {{i.motivation}}</p>
-            <!-- <p>priority: {{i.priority}}</p> -->
-            <!-- priorityの要素にアクセスできない -->
-            <!-- <p>priority: {{i.priority}}</p> -->
-        </span>
-        {% endif %}
+    <br>
+    <img src="/../../static/images/list.png" width="750" height="75"></image>
+    {% if i.completed == True %}
+    <strike>
+        <p class="title">{{i}}</p>
+        <p class="progress2">進捗率: {{i.progress}}</p>
+        <p class="importance">重要度: {{i.importance}}</p>
+        <p class="motivation">モチベ: {{i.motivation}}</p>
+        <!-- <p>priority: {{i.priority}}</p> -->
+        <!-- priorityの要素にアクセスできない -->
+        <!-- <p>priority: {{i.priority}}</p> -->
+    </strike>
+    {% else %}
+    <span>
+        <p class="title">{{i}}</p>
+        <p class="progress2">進捗率: {{i.progress}}</p>
+        <p class="importance">重要度: {{i.importance}}</p>
+        <p class="motivation">モチベ: {{i.motivation}}</p>
+        <!-- <p>priority: {{i.priority}}</p> -->
+        <!-- priorityの要素にアクセスできない -->
+        <!-- <p>priority: {{i.priority}}</p> -->
+    </span>
+    {% endif %}
 
-        <p class="update"><a href="{% url 'update_todo' i.id %}">Update</a></p>
-        <p class="delete"><a href="{% url 'delete' i.id %}">Delete</a></p>
-        <!-- <p>date: {{i.created}}</p> -->
-        <br>
-    </div>
+    <p class="update"><a href="{% url 'update_todo' i.id %}">Update</a></p>
+    <p class="delete"><a href="{% url 'delete' i.id %}">Delete</a></p>
+    <!-- <p>date: {{i.created}}</p> -->
+    <br>
 </div>
 {% endfor %}
 {% endblock content %}
