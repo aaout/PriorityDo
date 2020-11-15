@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block content %}
-<h3>Are you sure you want to delete "{{ item }}" ?</h3>
+<h3>消す？？？ "{{ item }}" ?</h3>
 <a href="{% url 'list' %}">Cancel</a>
 <form method="POST" action="">
     {% csrf_token %}

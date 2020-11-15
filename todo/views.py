@@ -51,3 +51,20 @@ def deleteTodo(request, pk):
 
     context = {'item':item}
     return render(request, 'todo/delete.html', context)
+
+def sort_importance(request):
+    todo = Todo.objects.order_by('-importance').all()
+    context = {'todo':todo}
+    return render(request, 'todo/sort_importance.html', context)
+
+
+def sort_motivation(request):
+    todo = Todo.objects.order_by('-motivation').all()
+    context = {'todo':todo}
+    return render(request, 'todo/sort_motivation.html', context)
+
+
+def sort_progress(request):
+    todo = Todo.objects.order_by('-progress').all()
+    context = {'todo':todo}
+    return render(request, 'todo/sort_progress.html', context)
