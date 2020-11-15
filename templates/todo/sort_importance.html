@@ -12,24 +12,11 @@
     <script src="//../../static/css/bootstrap/js/bootstrap.min.js"></script>
 </head>
 
-<!-- actionは指定しなくてもredirectで指定すれば動く -->
-<form method="POST" action="/">
-    {% csrf_token %}
-    <div>
-        <p>{{form.title}}</p>
-        <p>progress {{form.progress}}</p>
-        <p>importance {{form.importance}}</p>
-        <p>motivation {{form.motivation}}</p>
-        <input type="submit" name="Create Todo" value="todo 追加">
-    </div>
-</form>
+<h3>重要度順でソートしました</h3>
+<h3>大事なタスク、、、後回しでいいの？？</h3>
 
-<br>
-<br>
-<a href="{% url 'sort_progress' %}">progress</a>
-<a href="{% url 'sort_importance' %}">importance</a>
-<a href="{% url 'sort_motivation' %}">motivation</a>
-<br>
+<a href=" {% url 'list' %}">戻る</a>
+
 
 {% for i in todo %}
 <div class='a1'>
@@ -40,9 +27,6 @@
         進捗: {{i.progress}}
         重要度: {{i.importance}}
         モチベ: {{i.motivation}}
-        <!-- <p>priority: {{i.priority}}</p> -->
-        <!-- priorityの要素にアクセスできない -->
-        <!-- <p>priority: {{i.priority}}</p> -->
     </strike>
     {% else %}
     <span>
@@ -61,9 +45,10 @@
 
     <a href="{% url 'update_todo' i.id %}">Update </a>
     <a href="{% url 'delete' i.id %}">Delete</a>
-    <!-- <p>date: {{i.created}}</p> -->
     <br>
     <br>
 </div>
 {% endfor %}
+
+
 {% endblock content %}
