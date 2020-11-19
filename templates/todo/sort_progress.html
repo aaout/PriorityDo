@@ -4,29 +4,29 @@
 {% block content %}
 
 <div style="text-align:center;">
-<head>
-    <!-- BootstrapのCSS読み込み -->
-    <link rel="stylesheet" href="//../../static/css/bootstrap/css/bootstrap.min.css">
-    <!-- jQuery読み込み -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <!-- BootstrapのJS読み込み -->
-    <script src="//../../static/css/bootstrap/js/bootstrap.min.js"></script>
-</head>
 
-<h3>進捗順でソートしました</h3>
-<h3>全然進んでないじゃん！急げよ！！</h3>
+    <head>
+        <!-- BootstrapのCSS読み込み -->
+        <link rel="stylesheet" href="//../../static/css/bootstrap/css/bootstrap.min.css">
+        <!-- jQuery読み込み -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <!-- BootstrapのJS読み込み -->
+        <script src="//../../static/css/bootstrap/js/bootstrap.min.js"></script>
+    </head>
 
-<a href=" {% url 'list' %}">戻る</a>
+    <h3>進捗順でソートしました</h3>
+    <h3>全然進んでないじゃん！急げよ！！</h3>
 
-{% for i in todo %}
-<div class='a1'>
-    <div class="kani">
+    <a href=" {% url 'list' %}">戻る</a>
+
+    {% for i in todo %}
+    <div class='a1'>
         <br>
         <img src="/../../static/images/list.png" width="750" height="75"></image>
         {% if i.completed == True %}
         <strike>
             <p class="title">{{i}}</p>
-            <p class="progress">進捗率: {{i.progress}}</p>
+            <p class="progress2">進捗率: {{i.progress}}</p>
             <p class="importance">重要度: {{i.importance}}</p>
             <p class="motivation">モチベ: {{i.motivation}}</p>
             <!-- <p>priority: {{i.priority}}</p> -->
@@ -36,7 +36,7 @@
         {% else %}
         <span>
             <p class="title">{{i}}</p>
-            <p class="progress">進捗率: {{i.progress}}</p>
+            <p class="progress2">進捗率: {{i.progress}}</p>
             <p class="importance">重要度: {{i.importance}}</p>
             <p class="motivation">モチベ: {{i.motivation}}</p>
             <!-- <p>priority: {{i.priority}}</p> -->
@@ -50,9 +50,8 @@
         <!-- <p>date: {{i.created}}</p> -->
         <br>
     </div>
-</div>
-{% endfor %}
+    {% endfor %}
 
 
-{% endblock content %}
+    {% endblock content %}
 </div>
